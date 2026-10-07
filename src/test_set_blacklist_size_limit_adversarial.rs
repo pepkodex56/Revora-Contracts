@@ -118,11 +118,7 @@ fn lowering_the_limit_never_evicts_existing_entries() {
     let token = Address::generate(&env);
     register(&env, &contract_id, &issuer, &NS, &token);
 
-    let keep = [
-        Address::generate(&env),
-        Address::generate(&env),
-        Address::generate(&env),
-    ];
+    let keep = [Address::generate(&env), Address::generate(&env), Address::generate(&env)];
     for investor in keep.iter() {
         client.blacklist_add(&issuer, &issuer, &NS, &token, investor);
     }
